@@ -55,6 +55,6 @@ como argumento a localização do arquivo txt para testes
 ```
 ./main testes.txt 
 ```
-5. Caso a execuçaõ ocorra com sucesso, a saída sera salva em src/outCompression.txt
+5. Caso a execução ocorra com sucesso, a saída sera salva em src/outCompression.txt
 
 
