@@ -72,24 +72,28 @@ void lzwDecode(vector<int> compressedData)
     int old = compressedData[0];
     int decodedCharacterIndex = 0;
 
-    string out = dictionary[old] , c ="";
-    c+= out[0];
-    cout << out; 
+    string out = dictionary[old], c = "";
+    c += out[0];
+    cout << out;
     int code = 256;
-    
-    for(int i = 0 ; i < compressedData.size() -1 ; i++){
 
-        decodedCharacterIndex = compressedData[i+1];
+    for (int i = 0; i < compressedData.size() - 1; i++)
+    {
 
-        if(dictionary.find(decodedCharacterIndex) == dictionary.end()){
+        decodedCharacterIndex = compressedData[i + 1];
+
+        if (dictionary.find(decodedCharacterIndex) == dictionary.end())
+        {
             out = dictionary[old];
-            out+=c;
-        }else{
+            out += c;
+        }
+        else
+        {
             out = dictionary[decodedCharacterIndex];
         }
-        cout << out; 
+        cout << out;
         c = "";
-        c+= out[0];
+        c += out[0];
         dictionary[code] = dictionary[old] + c;
         code++;
         old = decodedCharacterIndex;
@@ -97,19 +101,32 @@ void lzwDecode(vector<int> compressedData)
     cout << endl;
 }
 
-int main()
+int main(int argc, char **argv)
 {
-    //ifstream arq("inString.txt");
-    cout << "a " << endl;
-    std::vector<int> compressed = lzwCompression("bananabanabofana");
-    for (int key : compressed)
+    ifstream arq(argv[1]);
+    ofstream out("outCompression.txt");
+    out << "Saída da decodificação LZW : " << endl;
+    if (arq.is_open())
     {
-        cout << key << " , ";
+        while (!arq.eof())
+        {
+            string line = "";
+            getline(arq, line);
+            std::vector<int> compressed = lzwCompression(line);
+            out << "-------------------------------------------------------------------------------------------------" << endl;
+            out << "Antes da compressão : " << line << endl;
+            out << "Comprimido utilizando LZW : ";
+            for (int key : compressed)
+            {
+                out << key << " , ";
+            }
+            out << endl << "-------------------------------------------------------------------------------------------------" << endl;
+
+            lzwDecode(compressed);
+        }
     }
 
     cout << endl;
-
-    lzwDecode(compressed);
 
     //ofstream arq("outTests.txt");
 }
