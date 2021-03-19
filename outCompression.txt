@@ -1,5 +1,0 @@
-Saída da decodificação LZW : 
--------------------------------------------------------------------------------------------------
-Antes da compressão : ADFDFADFFADFDFADFDFADFFADFDFADFDFADFFADFDFADFDFADFFADFDFADFDFADFFADFDFADFDFADFFADFDFADFDFADFFADFDFADFDFADFFADFDFADFDFADFFADFDF
-Comprimido utilizando LZW : 65 , 68 , 70 , 257 , 256 , 70 , 70 , 260 , 259 , 257 , 264 , 261 , 263 , 262 , 265 , 269 , 267 , 270 , 268 , 260 , 271 , 266 , 266 , 276 , 279 , 275 , 274 , 273 , 257 , 280 , 283 , 272 , 258 , 285 , 287 , 257 , 
--------------------------------------------------------------------------------------------------
