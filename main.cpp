@@ -74,7 +74,7 @@ void lzwDecode(vector<int> compressedData)
 
     string out = dictionary[old], c = "";
     c += out[0];
-    cout << out;
+    //cout << out;
     int code = 256;
 
     for (int i = 0; i < compressedData.size() - 1; i++)
@@ -91,7 +91,7 @@ void lzwDecode(vector<int> compressedData)
         {
             out = dictionary[decodedCharacterIndex];
         }
-        cout << out;
+        //cout << out;
         c = "";
         c += out[0];
         dictionary[code] = dictionary[old] + c;
@@ -103,27 +103,33 @@ void lzwDecode(vector<int> compressedData)
 
 int main(int argc, char **argv)
 {
+
     ifstream arq(argv[1]);
     ofstream out("outCompression.txt");
-    out << "Saída da decodificação LZW : " << endl;
+    out << "Saída da decodificação LZW" << endl;
     if (arq.is_open())
     {
+        string stringToCompress = "";
+        //Percorre meu txt para obter a string para compressão
         while (!arq.eof())
         {
-            string line = "";
-            getline(arq, line);
-            std::vector<int> compressed = lzwCompression(line);
-            out << "-------------------------------------------------------------------------------------------------" << endl;
-            out << "Antes da compressão : " << line << endl;
-            out << "Comprimido utilizando LZW : ";
-            for (int key : compressed)
-            {
-                out << key << " , ";
-            }
-            out << endl << "-------------------------------------------------------------------------------------------------" << endl;
-
-            lzwDecode(compressed);
+            string auxLine = "";
+            getline(arq, auxLine);
+            stringToCompress += auxLine;
         }
+        std::vector<int> compressed = lzwCompression(stringToCompress);
+        out << "-------------------------------------------------------------------------------------------------" << endl;
+        out << "Antes da compressão : " << stringToCompress << endl;
+        out << "Comprimido utilizando LZW : ";
+        for (int key : compressed)
+        {
+            out << key << " , ";
+        }
+        out << endl
+            << "-------------------------------------------------------------------------------------------------" << endl;
+
+        lzwDecode(compressed);
+        cout << "String comprimida com sucesso!, os resultados foram salvos no arquivo : outCompression.txt " << endl; 
     }
 
     cout << endl;
