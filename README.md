@@ -57,8 +57,10 @@ como argumento a localização do arquivo txt para testes
 ```
 5. Caso a execução ocorra com sucesso, a saída sera salva em src/outCompression.txt
 
-##Referências
+## Referências
 [https://sites.google.com/site/datacompressionguide/lzw](https://sites.google.com/site/datacompressionguide/lzw)
+
 [https://users.cs.cf.ac.uk/Dave.Marshall/Multimedia/node214.html](https://users.cs.cf.ac.uk/Dave.Marshall/Multimedia/node214.html)
+
 [https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch)
 
